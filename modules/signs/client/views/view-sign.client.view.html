@@ -1,0 +1,23 @@
+<section ng-controller="SignsController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="sign.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user.id == sign.user.id || (authentication.user.roles.indexOf('admin') && authentication.user.roles.indexOf('admin') != -1) ">
+    <a class="btn btn-primary" ui-sref="signs.edit({signId: sign.id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove(sign);">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Created on
+      <span ng-bind="sign.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="sign.user.username"></span>
+    </em>
+  </small>
+  location:<p class="lead" ng-bind="sign.location"></p>
+  <p class="lead" ng-bind="sign.description"></p>
+</section>

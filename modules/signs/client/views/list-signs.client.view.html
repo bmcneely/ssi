@@ -1,0 +1,20 @@
+<section ng-controller="SignsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Signs</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="sign in signs" ui-sref="signs.view({signId: sign.id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Created on
+        <span ng-bind="sign.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="sign.user.username"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="sign.title"></h4>
+      <p class="list-group-item-text" ng-bind="sign.location"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="!signs.length">
+    No signs yet, why don't you <a ui-sref="signs.create">create one</a>?
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<section ng-controller="SignsController">
+  <div class="page-header">
+    <h1>New Sign</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="signForm" class="form-horizontal" ng-submit="create(signForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="title">Title</label>
+          <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="signForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Sign title is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="location">Location</label>
+          <input name="location" type="text" ng-model="location" id="location" class="form-control" placeholder="Location" required>
+          <div ng-messages="signForm.location.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Sign location is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea name="description" ng-model="description" id="description" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-center alert alert-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
